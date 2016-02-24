@@ -2,6 +2,11 @@ body, input {
   font: menu;
 }
 
+li.list-group-item {
+  background-color: lightgray;
+}
+
+
 .content {
   display: flex;
 }
@@ -11,8 +16,11 @@ body, input {
 }
 
 .note-content {
+  padding-left: 3em;
 }
 
 .note-list-item {
   display: block;
+  color: black;
 }
+

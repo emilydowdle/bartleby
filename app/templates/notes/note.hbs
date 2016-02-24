@@ -1,10 +1,15 @@
-<div class="note-content">
+<div class="note-content pane">
   <h3>{{model.id}}</h3>
+  <hr>
 
-  <p>{{model.content}}</p>
+  <p class="note-content">{{model.content}}</p>
 
   {{textarea value=model.content}}
 
+  <br>
   {{#if model.hasDirtyAttributes}}<button {{action 'saveNote' on='click'}}>Save Note</button>{{/if}}
   <button {{action 'deleteNote' on='click'}}>Delete</button>
 </div>
+
+{{markdown-to-html markdown=model.content}}
+{{markdown-renderer note=model}}

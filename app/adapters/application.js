@@ -5,7 +5,7 @@ const electron = requireNode('electron');
 const mainProcess = electron.remote.require('./electron');
 const filesystem = mainProcess.filesystem;
 
-// export default DS.Adapter.extend({
+export default DS.Adapter.extend({
 
   findAll() {
     return filesystem.all();
@@ -21,4 +21,4 @@ const filesystem = mainProcess.filesystem;
     return filesystem.write(data.id, data.content);
   }
 
-// });
+});

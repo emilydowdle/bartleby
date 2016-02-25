@@ -9,6 +9,10 @@ export default Ember.Controller.extend({
       this.store.createRecord('note', {
         id: this.get('newNoteTitle') + '.md'
       }).save();
+    },
+
+    deleteNote() {
+      console.log('deleting note');
     }
   }
 

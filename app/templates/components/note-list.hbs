@@ -1,0 +1,11 @@
+<li class="list-group-header">
+  {{input type="text" value=searchTerm placeholder="Search Notes…"}}
+</li>
+
+{{#each availableNotes as |note|}}
+  <li class="list-group-item">
+    <div class="media-body">
+      {{note-list-item note=note}}
+    </div>
+  </li>
+{{/each}}

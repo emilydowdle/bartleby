@@ -2,6 +2,10 @@ body, input {
   font: menu;
 }
 
+input {
+  width: 180px;
+}
+
 h3 {
   margin-top: 0px !important;
 }
@@ -23,10 +27,6 @@ li.list-group-item {
 .note-list {
   width: 200px;
 }
-
-/* .note-content { */
-/*   padding-left: 3em; */
-/* } */
 
 .note-list-item {
   display: block;

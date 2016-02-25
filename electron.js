@@ -14,12 +14,6 @@ let filesystem = new FileBin(__dirname + '/notes', ['.txt', '.md', '.markdown'])
 electron.crashReporter.start();
 
 app.on('window-all-closed', function onWindowAllClosed() {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
-});
-
-app.on('window-all-closed', function onWindowAllClosed() {
   if (process.platform !== 'darwin') {
     app.quit();
   }
@@ -32,17 +26,17 @@ app.on('ready', function onReady() {
         titleBarStyle: 'hidden'
     });
 
-    delete mainWindow.module;
+  delete mainWindow.module;
 
+  mainWindow.loadURL(emberAppLocation);
+
+  mainWindow.webContents.on('did-fail-load', () => {
     mainWindow.loadURL(emberAppLocation);
+  });
 
-    mainWindow.webContents.on('did-fail-load', () => {
-        mainWindow.loadURL(emberAppLocation);
-    });
-
-    mainWindow.on('closed', () => {
-        mainWindow = null;
-    });
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 });
 
 exports.filesystem = filesystem;

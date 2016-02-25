@@ -1,13 +1,18 @@
 <div class="window">
   <header class="toolbar toolbar-header">
-    <h1 class="title">Photon</h1>
+    <h1 class="title">Bartleby</h1>
     <div class="toolbar-actions">
       <div class="btn-group">
         <button class="btn btn-default">
-          <span class="icon icon-home"></span>
+          New
         </button>
         <button class="btn btn-default">
-          <span class="icon icon-folder"></span>
+          Open
+        </button>
+      </div>
+      <div class="btn-group pull-right">
+        <button class="btn btn-default">
+          Delete
         </button>
       </div>
     </div>
@@ -17,36 +22,22 @@
       <div class="pane-sm sidebar">
         <div class="note-list">
           <ul class="list-group">
-            <li class="list-group-header">
-              <input class="form-control" type="text" placeholder="Search Notes">
-            </li>
-    <nav class="nav-group">
-      <h5 class="nav-group-title">Favorites</h5>
-      <a class="nav-group-item active">
-        <span class="icon icon-home"></span>
-        connors
-      </a>
-      <span class="nav-group-item">
-        <span class="icon icon-download"></span>
-        Downloads
-      </span>
-    </nav>
-            {{#each model as |note|}}
-              <li class="list-group-item">
-                <div class="media-body">
-                  {{#link-to 'notes.note' note class="note-list-item"}}
-                  <strong>{{note.id}}</strong>
-                  {{/link-to}}
-                  <p>{{note.content}}</p>
-                </div>
-              </li>
-            {{/each}}
+            {{note-list notes=model}}
           </ul>
+          <div class="new-note">
+            {{input type="text"
+                    placeholder="New Note Title"
+                    value=newNoteTitle}}
+            {{#if newNoteTitle}}<button {{action 'createNote'}}>Create</button>{{/if}}
+          </div>
         </div>
       </div>
-      <div class="pane">
-        {{outlet}}
-      </div>
+      {{outlet}}
     </div>
   </div>
+  <footer class="toolbar toolbar-footer">
+    <p class="title">
+      Word Count: {{note.id}}
+    </p>
+  </footer>
 </div>

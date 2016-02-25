@@ -2,6 +2,24 @@ body, input {
   font: menu;
 }
 
+input {
+  width: 180px;
+}
+
+h3 {
+  margin-top: 0px !important;
+}
+
+.pane {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 2em;
+}
+
+li.list-group-item {
+  background-color: lightgray;
+}
+
 .content {
   display: flex;
 }
@@ -10,9 +28,8 @@ body, input {
   width: 200px;
 }
 
-.note-content {
-}
-
 .note-list-item {
   display: block;
+  color: black;
 }
+
